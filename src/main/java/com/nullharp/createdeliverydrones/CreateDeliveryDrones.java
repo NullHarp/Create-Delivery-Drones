@@ -3,6 +3,7 @@ package com.nullharp.createdeliverydrones;
 import com.mojang.logging.LogUtils;
 import com.nullharp.createdeliverydrones.registry.BlockRegistry;
 import com.nullharp.createdeliverydrones.registry.CreativeTabRegistry;
+import com.nullharp.createdeliverydrones.registry.EntityRegistry;
 import com.nullharp.createdeliverydrones.registry.ItemRegistry;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.RegistryEntry;
@@ -43,6 +44,7 @@ public class CreateDeliveryDrones
         // Reference all registry classes here
         ItemRegistry.register();
         BlockRegistry.register();
+        EntityRegistry.register();
         CreativeTabRegistry.register();
     }
 
