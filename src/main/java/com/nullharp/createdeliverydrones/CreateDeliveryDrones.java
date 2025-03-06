@@ -1,10 +1,7 @@
 package com.nullharp.createdeliverydrones;
 
 import com.mojang.logging.LogUtils;
-import com.nullharp.createdeliverydrones.registry.BlockRegistry;
-import com.nullharp.createdeliverydrones.registry.CreativeTabRegistry;
-import com.nullharp.createdeliverydrones.registry.EntityRegistry;
-import com.nullharp.createdeliverydrones.registry.ItemRegistry;
+import com.nullharp.createdeliverydrones.registry.*;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
@@ -44,6 +41,7 @@ public class CreateDeliveryDrones
         // Reference all registry classes here
         ItemRegistry.register();
         BlockRegistry.register();
+        BlockEntityRegistry.register();
         EntityRegistry.register();
         CreativeTabRegistry.register();
     }
@@ -55,8 +53,6 @@ public class CreateDeliveryDrones
     public static final Registrate REGISTRATE = Registrate.create(CreateDeliveryDrones.MODID);
 
     private final Registrate registrate = Registrate.create("createdeliverydrones");
-
-
 
 
     public CreateDeliveryDrones(FMLJavaModLoadingContext context)

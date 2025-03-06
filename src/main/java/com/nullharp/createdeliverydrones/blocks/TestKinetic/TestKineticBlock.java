@@ -1,5 +1,6 @@
 package com.nullharp.createdeliverydrones.blocks.TestKinetic;
 
+import com.nullharp.createdeliverydrones.registry.BlockEntityRegistry;
 import com.nullharp.createdeliverydrones.registry.BlockRegistry;
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.content.kinetics.base.IRotate;
@@ -38,7 +39,7 @@ public class TestKineticBlock extends DirectionalKineticBlock implements IBE<Tes
 
     @Override
     public BlockEntityType<? extends TestKineticBlockEntity> getBlockEntityType() {
-        return BlockRegistry.TEST_KINETIC_BLOCK_ENTITY.get();
+        return BlockEntityRegistry.TEST_KINETIC.get();
     }
 
     @Override
@@ -48,7 +49,7 @@ public class TestKineticBlock extends DirectionalKineticBlock implements IBE<Tes
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return BlockRegistry.TEST_KINETIC_BLOCK_ENTITY.create(pos, state);
+        return BlockEntityRegistry.TEST_KINETIC.create(pos, state);
     }
 
     @Override

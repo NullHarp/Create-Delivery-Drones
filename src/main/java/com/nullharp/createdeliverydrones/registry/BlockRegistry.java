@@ -35,14 +35,8 @@ public class BlockRegistry {
             .tag(AllTags.AllBlockTags.SAFE_NBT.tag) //Dono what this tag means (contraption safe?).
             .item()
             .transform(customItemModel())
-            .register();
-
-    public static final BlockEntityEntry<TestKineticBlockEntity> TEST_KINETIC_BLOCK_ENTITY = CreateDeliveryDrones.REGISTRATE
-            .blockEntity("test_kinetic_block_entity", TestKineticBlockEntity::new)
-            .validBlocks(BlockRegistry.TEST_KINETIC)
+            .lang("Test Kinetic")
             .register();
 
     public static void register() {}
-
-
 }
