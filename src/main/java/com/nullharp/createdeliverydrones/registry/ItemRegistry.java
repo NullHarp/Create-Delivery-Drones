@@ -9,7 +9,7 @@ import static com.nullharp.createdeliverydrones.CreateDeliveryDrones.REGISTRATE;
 
 public class ItemRegistry {
 
-    public static final RegistryEntry<Item> EXAMPLE_ITEM = REGISTRATE.item("example_item",Item::new)
+    public static final RegistryEntry<Item> EXAMPLE_ITEM = REGISTRATE.get().item("example_item",Item::new)
             .lang("Example Item")
             .register();
 

@@ -12,7 +12,7 @@ import static com.nullharp.createdeliverydrones.CreateDeliveryDrones.REGISTRATE;
 
 public class BlockRegistry {
 
-    public static final RegistryEntry<Block> EXAMPLE_BLOCK = REGISTRATE.block("example_block", Block::new)
+    public static final RegistryEntry<Block> EXAMPLE_BLOCK = REGISTRATE.get().block("example_block", Block::new)
             .simpleItem()
             .lang("Example Block")
             .register();
