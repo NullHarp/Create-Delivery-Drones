@@ -22,4 +22,5 @@ public class BlockRegistry {
 
     public static void register() {}
 
+
 }
