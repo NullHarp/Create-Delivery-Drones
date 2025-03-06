@@ -1,7 +1,11 @@
 package com.nullharp.createdeliverydrones;
 
 import com.mojang.logging.LogUtils;
+import com.nullharp.createdeliverydrones.registry.BlockRegistry;
+import com.nullharp.createdeliverydrones.registry.CreativeTabRegistry;
+import com.nullharp.createdeliverydrones.registry.ItemRegistry;
 import com.tterrag.registrate.Registrate;
+import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -30,86 +34,37 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(CreateDeliveryDrones.MODID)
 public class CreateDeliveryDrones
 {
-    public static final NonNullSupplier<Registrate> REGISTRATE = NonNullSupplier.lazy(() -> Registrate.create(CreateDeliveryDrones.MODID));
 
-    // Define mod id in a common place for everything to reference
+
+    public static void registerAll() {
+        // Reference all registry classes here
+        ItemRegistry.register();
+        BlockRegistry.register();
+        CreativeTabRegistry.register();
+    }
+
     public static final String MODID = "createdeliverydrones";
-    // Directly reference a slf4j logger
+
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    public static final Registrate REGISTRATE = Registrate.create(CreateDeliveryDrones.MODID);
 
-    // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
-
-    // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
+    private final Registrate registrate = Registrate.create("createdeliverydrones");
 
 
-    // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
 
-    /*
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-            }).build());
-    */
 
     public CreateDeliveryDrones(FMLJavaModLoadingContext context)
     {
+        registerAll();
 
+        IEventBus modEventBus = context.getModEventBus(); //if needed
 
-
-        IEventBus modEventBus = context.getModEventBus();
-
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-
-        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
-
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-
-        if (Config.logDirtBlock)
-            LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
-    }
-
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
-    }
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-        }
     }
 }
