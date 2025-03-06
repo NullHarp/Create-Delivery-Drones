@@ -1,5 +1,6 @@
 package com.nullharp.createdeliverydrones.registry;
 
+
 import com.nullharp.createdeliverydrones.CreateDeliveryDrones;
 import com.nullharp.createdeliverydrones.blocks.TestKinetic.TestKineticBlock;
 import com.nullharp.createdeliverydrones.blocks.TestKinetic.TestKineticBlockEntity;
@@ -10,7 +11,6 @@ import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 
 
@@ -20,13 +20,9 @@ import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 public class BlockRegistry {
 
     public static final RegistryEntry<Block> EXAMPLE_BLOCK = REGISTRATE.block("example_block", Block::new)
-            .lang("Example Block")
-            .register();
-
-    public static final RegistryEntry<BlockItem> EXAMPLE_BLOCK_ITEM = REGISTRATE.block("example_block", Block::new)
             .item()
-            .tab(CreativeTabRegistry.MAIN_TAB.getKey())
-            .lang("Example Block")
+                .tab(CreativeTabRegistry.MAIN_TAB.getKey())
+                .build()
             .register();
 
     public static final BlockEntry<TestKineticBlock> TEST_KINETIC = CreateDeliveryDrones.REGISTRATE.block("test_kinetic", TestKineticBlock::new)
