@@ -1,12 +1,21 @@
 package com.nullharp.createdeliverydrones.registry;
 
 import com.nullharp.createdeliverydrones.CreateDeliveryDrones;
+import com.nullharp.createdeliverydrones.blocks.TestKinetic.TestKineticBlock;
+import com.nullharp.createdeliverydrones.blocks.TestKinetic.TestKineticBlockEntity;
+import com.simibubi.create.AllPartialModels;
+import com.simibubi.create.AllTags;
+import com.simibubi.create.content.kinetics.base.OrientedRotatingVisual;
+import com.simibubi.create.foundation.data.SharedProperties;
+import com.tterrag.registrate.util.entry.BlockEntityEntry;
+import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 
 
 import static com.nullharp.createdeliverydrones.CreateDeliveryDrones.REGISTRATE;
+import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 
 public class BlockRegistry {
 
@@ -18,6 +27,19 @@ public class BlockRegistry {
             .item()
             .tab(CreativeTabRegistry.MAIN_TAB.getKey())
             .lang("Example Block")
+            .register();
+
+    public static final BlockEntry<TestKineticBlock> TEST_KINETIC = CreateDeliveryDrones.REGISTRATE.block("test_kinetic", TestKineticBlock::new)
+            .initialProperties(SharedProperties::softMetal)
+            //.transform(CStress.setImpact(Config.MAX_STRESS.get()/256f))
+            .tag(AllTags.AllBlockTags.SAFE_NBT.tag) //Dono what this tag means (contraption safe?).
+            .item()
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntityEntry<TestKineticBlockEntity> TEST_KINETIC_BLOCK_ENTITY = CreateDeliveryDrones.REGISTRATE
+            .blockEntity("test_kinetic_block_entity", TestKineticBlockEntity::new)
+            .validBlocks(BlockRegistry.TEST_KINETIC)
             .register();
 
     public static void register() {}
