@@ -1,6 +1,7 @@
 package com.nullharp.createdeliverydrones.registry;
 
 import com.nullharp.createdeliverydrones.CreateDeliveryDrones;
+import com.nullharp.createdeliverydrones.blocks.DroneDock.DroneDockBlock;
 import com.nullharp.createdeliverydrones.blocks.TestKinetic.TestKineticBlock;
 import com.nullharp.createdeliverydrones.blocks.TestKinetic.TestKineticBlockEntity;
 import com.simibubi.create.AllPartialModels;
@@ -36,6 +37,15 @@ public class BlockRegistry {
             .item()
             .transform(customItemModel())
             .lang("Test Kinetic")
+            .register();
+
+    public static final BlockEntry<DroneDockBlock> DRONE_DOCK = CreateDeliveryDrones.REGISTRATE.block("drone_dock", DroneDockBlock::new)
+            .initialProperties(SharedProperties::softMetal)
+            //.transform(CStress.setImpact(Config.MAX_STRESS.get()/256f))
+            .tag(AllTags.AllBlockTags.SAFE_NBT.tag) //Dono what this tag means (contraption safe?).
+            .item()
+            .transform(customItemModel())
+            .lang("drone_dock")
             .register();
 
     public static void register() {}
