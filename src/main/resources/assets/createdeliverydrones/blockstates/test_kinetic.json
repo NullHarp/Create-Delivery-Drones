@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": { "model": "createdeliverydrones:block/test_input" },
+    "facing=south": { "model": "createdeliverydrones:block/test_input", "y": 180 },
+    "facing=east": { "model": "createdeliverydrones:block/test_input", "y": 90 },
+    "facing=west": { "model": "createdeliverydrones:block/test_input", "y": 270 },
+    "facing=up": { "model": "createdeliverydrones:block/test_input", "x": 270 },
+    "facing=down": { "model": "createdeliverydrones:block/test_input", "x": 90 }
+  }
+}
