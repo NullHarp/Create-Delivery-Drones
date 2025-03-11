@@ -16,10 +16,12 @@ public class DeliveryDrone extends Mob {
 
     public DeliveryDrone(EntityType<? extends Mob> type, Level world) {
         super(type, world);
+        //this.defineSynchedData();
     }
 
     @Override
     protected void defineSynchedData() {
+        super.defineSynchedData();
         this.entityData.define(DATA_EXAMPLE, 0); // Set default value
     }
 
