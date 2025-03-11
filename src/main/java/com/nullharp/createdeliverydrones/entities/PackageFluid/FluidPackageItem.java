@@ -74,10 +74,12 @@ public class FluidPackageItem extends Item {
         return true;
     }
 
+    /*
     @Override
     public Entity createEntity(Level world, Entity location, ItemStack itemstack) {
         return FluidPackageEntity.fromDroppedItem(world, location, itemstack);
     }
+    */
 
     public static ItemStack containing(List<ItemStack> stacks) {
         ItemStackHandler newInv = new ItemStackHandler(9);
@@ -305,6 +307,7 @@ public class FluidPackageItem extends Item {
         return new InteractionResultHolder<>(InteractionResult.SUCCESS, box);
     }
 
+    /*
     @Override
     public InteractionResult useOn(UseOnContext context) {
         if (context.getPlayer()
@@ -382,6 +385,8 @@ public class FluidPackageItem extends Item {
         packageEntity.tossedBy = new WeakReference<>(player);
         world.addFreshEntity(packageEntity);
     }
+
+    */
 
     public static float getPackageVelocity(int p_185059_0_) {
         float f = (float) p_185059_0_ / 20.0F;

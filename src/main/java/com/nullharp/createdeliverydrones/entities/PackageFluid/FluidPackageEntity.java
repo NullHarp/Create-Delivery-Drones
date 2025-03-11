@@ -70,11 +70,13 @@ public class FluidPackageEntity extends LivingEntity implements IEntityAdditiona
         insertionDelay = 30;
     }
 
+    /*
     public FluidPackageEntity(Level worldIn, double x, double y, double z) {
         this(EntityRegistry.FLUID_PACKAGE.get(), worldIn);
         this.setPos(x, y, z);
         this.refreshDimensions();
     }
+
 
     public static FluidPackageEntity fromDroppedItem(Level world, Entity originalEntity, ItemStack itemstack) {
         FluidPackageEntity packageEntity = (FluidPackageEntity) EntityRegistry.FLUID_PACKAGE.get()
@@ -101,6 +103,8 @@ public class FluidPackageEntity extends LivingEntity implements IEntityAdditiona
         packageEntity.setBox(itemstack);
         return packageEntity;
     }
+
+    */
 
     @Override
     public ItemStack getPickedResult(HitResult target) {

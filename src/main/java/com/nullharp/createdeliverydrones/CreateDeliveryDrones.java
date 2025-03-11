@@ -3,6 +3,8 @@ package com.nullharp.createdeliverydrones;
 import com.mojang.logging.LogUtils;
 import com.nullharp.createdeliverydrones.entities.DeliveryDrone.DeliveryDroneModel;
 import com.nullharp.createdeliverydrones.entities.DeliveryDrone.DeliveryDroneRenderer;
+import com.nullharp.createdeliverydrones.entities.PackageFluid.FluidPackageModel;
+import com.nullharp.createdeliverydrones.entities.PackageFluid.FluidPackageRenderer;
 import com.nullharp.createdeliverydrones.registry.*;
 import com.tterrag.registrate.Registrate;
 import net.minecraft.world.entity.Mob;
@@ -23,9 +25,9 @@ public class CreateDeliveryDrones
 {
 
 
-    public static void registerAll() {
+    public static void registerAll(IEventBus bus) {
         // Reference all registry classes here
-        ItemRegistry.register();
+        ItemRegistry.register(bus);
         BlockRegistry.register();
         BlockEntityRegistry.register();
         EntityRegistry.register();
@@ -54,9 +56,11 @@ public class CreateDeliveryDrones
 
     public CreateDeliveryDrones(FMLJavaModLoadingContext context)
     {
-        registerAll();
 
-        IEventBus modEventBus = context.getModEventBus(); //if needed
+
+        IEventBus bus = context.getModEventBus(); //if needed
+
+        registerAll(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
