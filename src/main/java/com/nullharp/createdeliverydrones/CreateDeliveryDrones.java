@@ -52,25 +52,6 @@ public class CreateDeliveryDrones
         }
     }
 
-    public static class ModEntityAttributes {
-        public static void registerAttributes(EntityAttributeCreationEvent event) {
-            event.put(EntityRegistry.DELIVERY_DRONE.get(),
-                    Mob.createMobAttributes()
-                            .add(Attributes.MAX_HEALTH, 20.0) // Sets max health to 20
-                            .add(Attributes.MOVEMENT_SPEED, 0.25) // Sets movement speed
-                            .build()
-            );
-        }
-    }
-
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public class ModEventBus {
-        @SubscribeEvent
-        public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
-            ModEntityAttributes.registerAttributes(event);
-        }
-    }
-
     public CreateDeliveryDrones(FMLJavaModLoadingContext context)
     {
         registerAll();
