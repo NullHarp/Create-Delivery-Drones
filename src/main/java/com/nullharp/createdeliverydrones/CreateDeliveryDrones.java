@@ -5,9 +5,12 @@ import com.nullharp.createdeliverydrones.entities.DeliveryDrone.DeliveryDroneMod
 import com.nullharp.createdeliverydrones.entities.DeliveryDrone.DeliveryDroneRenderer;
 import com.nullharp.createdeliverydrones.registry.*;
 import com.tterrag.registrate.Registrate;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +49,25 @@ public class CreateDeliveryDrones
         @SubscribeEvent
         public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(DeliveryDroneModel.LAYER_LOCATION, DeliveryDroneModel::createBodyLayer);
+        }
+    }
+
+    public static class ModEntityAttributes {
+        public static void registerAttributes(EntityAttributeCreationEvent event) {
+            event.put(EntityRegistry.DELIVERY_DRONE.get(),
+                    Mob.createMobAttributes()
+                            .add(Attributes.MAX_HEALTH, 20.0) // Sets max health to 20
+                            .add(Attributes.MOVEMENT_SPEED, 0.25) // Sets movement speed
+                            .build()
+            );
+        }
+    }
+
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public class ModEventBus {
+        @SubscribeEvent
+        public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
+            ModEntityAttributes.registerAttributes(event);
         }
     }
 
