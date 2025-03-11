@@ -30,30 +30,12 @@ public class EntityRegistry {
             .attributes(DeliveryDrone::createMobAttributes)
             .register();
 
-
-    public static final EntityEntry<FluidPackageEntity> FLUID_PACKAGE = register("package", FluidPackageEntity::new, () -> FluidPackageRenderer::new,
-            MobCategory.MISC, 10, 3, true, false, FluidPackageEntity::build)
+    public static final EntityEntry<Entity> FLUID_PACKAGE = REGISTRATE
+            .object("fluid_package")
+            .entity(FluidPackageEntity::new, MobCategory.CREATURE)
             .register();
 
 
-
-    private static <T extends Entity> CreateEntityBuilder<T, ?> register(String name, EntityType.EntityFactory<T> factory,
-        NonNullSupplier<NonNullFunction<EntityRendererProvider.Context, EntityRenderer<? super T>>> renderer,
-        MobCategory group, int range, int updateFrequency, boolean sendVelocity, boolean immuneToFire,
-        NonNullConsumer<EntityType.Builder<T>> propertyBuilder) {
-            String id = Lang.asId(name);
-            return (CreateEntityBuilder<T, ?>) CreateDeliveryDrones.REGISTRATE
-            .entity(id, factory, group)
-            .properties(b -> b.setTrackingRange(range)
-            .setUpdateInterval(updateFrequency)
-            .setShouldReceiveVelocityUpdates(sendVelocity))
-            .properties(propertyBuilder)
-            .properties(b -> {
-                if (immuneToFire)
-                    b.fireImmune();
-                })
-            .renderer(renderer);
-    }
 
     public static void register() {}
 }
