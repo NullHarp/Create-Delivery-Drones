@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": { "model": "createdeliverydrones:block/drone_dock" },
+    "facing=south": { "model": "createdeliverydrones:block/drone_dock", "y": 180 },
+    "facing=east": { "model": "createdeliverydrones:block/drone_dock", "y": 90 },
+    "facing=west": { "model": "createdeliverydrones:block/drone_dock", "y": 270 },
+    "facing=up": { "model": "createdeliverydrones:block/drone_dock", "x": 270 },
+    "facing=down": { "model": "createdeliverydrones:block/drone_dock", "x": 90 }
+  }
+}
