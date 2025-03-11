@@ -32,7 +32,6 @@ public class BlockRegistry {
             .tag(AllTags.AllBlockTags.SAFE_NBT.tag) //Dono what this tag means (contraption safe?).
             .item()
             .transform(customItemModel())
-            .lang("Test Kinetic")
             .register();
 
     public static final BlockEntry<DroneDockBlock> DRONE_DOCK = CreateDeliveryDrones.REGISTRATE.block("drone_dock", DroneDockBlock::new)
@@ -41,7 +40,6 @@ public class BlockRegistry {
             .tag(AllTags.AllBlockTags.SAFE_NBT.tag) //Dono what this tag means (contraption safe?).
             .item()
             .transform(customItemModel())
-            .lang("drone_dock")
             .register();
 
     public static void register() {}
