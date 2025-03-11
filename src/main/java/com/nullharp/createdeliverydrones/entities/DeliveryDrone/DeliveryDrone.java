@@ -27,6 +27,7 @@ public class DeliveryDrone extends Mob {
 
     @Override
     protected void registerGoals() {
+        this.goalSelector.addGoal(3, new HoverGoal(this, 5.0D)); // Add the hover goal with the desired height
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 8.0F));
     }
