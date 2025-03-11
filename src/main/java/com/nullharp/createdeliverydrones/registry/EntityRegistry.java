@@ -12,7 +12,7 @@ public class EntityRegistry {
 
     public static final EntityEntry<DeliveryDrone> DELIVERY_DRONE = REGISTRATE
             .entity("delivery_drone", DeliveryDrone::new, MobCategory.CREATURE)
-            .properties(props -> props.sized(0.6f, 1.8f)) // Set the entity's hitbox size
+            .properties(props -> props.sized(1.2f, 0.4f)) // Set the entity's hitbox size
             .attributes(DeliveryDrone::createMobAttributes)
             .register();
 
