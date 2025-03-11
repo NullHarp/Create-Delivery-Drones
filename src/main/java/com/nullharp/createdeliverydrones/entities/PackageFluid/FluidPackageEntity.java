@@ -77,7 +77,7 @@ public class FluidPackageEntity extends LivingEntity implements IEntityAdditiona
     }
 
     public static FluidPackageEntity fromDroppedItem(Level world, Entity originalEntity, ItemStack itemstack) {
-        FluidPackageEntity packageEntity = EntityRegistry.FLUID_PACKAGE.get()
+        FluidPackageEntity packageEntity = (FluidPackageEntity) EntityRegistry.FLUID_PACKAGE.get()
                 .create(world);
 
         Vec3 position = originalEntity.position();
@@ -95,7 +95,7 @@ public class FluidPackageEntity extends LivingEntity implements IEntityAdditiona
     }
 
     public static FluidPackageEntity fromItemStack(Level world, Vec3 position, ItemStack itemstack) {
-        FluidPackageEntity packageEntity = EntityRegistry.FLUID_PACKAGE.get()
+        FluidPackageEntity packageEntity = (FluidPackageEntity) EntityRegistry.FLUID_PACKAGE.get()
                 .create(world);
         packageEntity.setPos(position);
         packageEntity.setBox(itemstack);
@@ -172,7 +172,7 @@ public class FluidPackageEntity extends LivingEntity implements IEntityAdditiona
         insertionDelay = Math.min(insertionDelay + 1, 30);
         super.tick();
 
-        if (!PackageItem.isPackage(box))
+        if (!FluidPackageItem.isPackage(box))
             discard();
     }
 
@@ -195,7 +195,7 @@ public class FluidPackageEntity extends LivingEntity implements IEntityAdditiona
     public EntityDimensions getDimensions(Pose pPose) {
         if (box == null)
             return super.getDimensions(pPose);
-        return new EntityDimensions(PackageItem.getWidth(box), PackageItem.getHeight(box), true);
+        return new EntityDimensions(FluidPackageItem.getWidth(box), FluidPackageItem.getHeight(box), true);
     }
 
     public static PackageEntity spawn(PlayMessages.SpawnEntity spawnEntity, Level world) {
@@ -365,7 +365,7 @@ public class FluidPackageEntity extends LivingEntity implements IEntityAdditiona
     @Override
     protected void dropAllDeathLoot(DamageSource pDamageSource) {
         super.dropAllDeathLoot(pDamageSource);
-        ItemStackHandler contents = PackageItem.getContents(box);
+        ItemStackHandler contents = FluidPackageItem.getContents(box);
         for (int i = 0; i < contents.getSlots(); i++) {
             ItemStack itemstack = contents.getStackInSlot(i);
 
