@@ -2,5 +2,6 @@
   "item.createdeliverydrones.example_item" : "Example Item",
   "block.createdeliverydrones.test_kinetic" : "Test Kinetic",
   "block.createdeliverydrones.drone_dock" : "Drone Dock",
+  "entity.createdeliverydrones.delivery_drone" : "Delivery Drone",
   "itemGroup.createdeliverydrones.main_tab" : "Create: Delivery Drones"
 }
