@@ -20,12 +20,6 @@ import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 
 public class BlockRegistry {
 
-    public static final RegistryEntry<Block> EXAMPLE_BLOCK = REGISTRATE.block("example_block", Block::new)
-            .item()
-                .tab(CreativeTabRegistry.MAIN_TAB.getKey())
-                .build()
-            .register();
-
     public static final BlockEntry<TestKineticBlock> TEST_KINETIC = CreateDeliveryDrones.REGISTRATE.block("test_kinetic", TestKineticBlock::new)
             .initialProperties(SharedProperties::softMetal)
             //.transform(CStress.setImpact(Config.MAX_STRESS.get()/256f))
