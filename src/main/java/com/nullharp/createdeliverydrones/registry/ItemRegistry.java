@@ -1,13 +1,9 @@
 package com.nullharp.createdeliverydrones.registry;
 
 import com.nullharp.createdeliverydrones.CreateDeliveryDrones;
-import com.nullharp.createdeliverydrones.entities.PackageFluid.FluidPackageEntity;
 import com.nullharp.createdeliverydrones.entities.PackageFluid.FluidPackageItem;
 import com.simibubi.create.content.logistics.box.PackageStyles;
-import com.simibubi.create.foundation.data.BuilderTransformers;
-import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

@@ -4,18 +4,11 @@ package com.nullharp.createdeliverydrones.registry;
 import com.nullharp.createdeliverydrones.CreateDeliveryDrones;
 import com.nullharp.createdeliverydrones.blocks.DroneDock.DroneDockBlock;
 import com.nullharp.createdeliverydrones.blocks.TestKinetic.TestKineticBlock;
-import com.nullharp.createdeliverydrones.blocks.TestKinetic.TestKineticBlockEntity;
-import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.AllTags;
-import com.simibubi.create.content.kinetics.base.OrientedRotatingVisual;
 import com.simibubi.create.foundation.data.SharedProperties;
-import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import com.tterrag.registrate.util.entry.RegistryEntry;
-import net.minecraft.world.level.block.Block;
 
 
-import static com.nullharp.createdeliverydrones.CreateDeliveryDrones.REGISTRATE;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 
 public class BlockRegistry {

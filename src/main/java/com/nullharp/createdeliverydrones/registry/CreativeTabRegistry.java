@@ -1,6 +1,5 @@
 package com.nullharp.createdeliverydrones.registry;
 
-import com.nullharp.createdeliverydrones.CreateDeliveryDrones;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
