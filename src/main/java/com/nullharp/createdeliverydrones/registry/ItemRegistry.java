@@ -24,7 +24,7 @@ public class ItemRegistry {
             .tab(CreativeTabRegistry.MAIN_TAB.getKey())
             .register();
 
-    public static final RegistryObject<FluidPackageItem> CURSED_CHAIN  = ITEMS.register("fluid_package",  () -> new FluidPackageItem(new Item.Properties(),new PackageStyles.PackageStyle("fluid_package",10,12,0,false)));
+    public static final RegistryObject<FluidPackageItem> FLUID_PACKAGE  = ITEMS.register("fluid_package",  () -> new FluidPackageItem(new Item.Properties(),new PackageStyles.PackageStyle("fluid_package",10,12,0,false)));
 
 
 
